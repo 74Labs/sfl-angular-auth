@@ -1,0 +1,14 @@
+{
+    "name": "sfl-angular-auth",
+    "version": "1.0.0",
+    "authors": [
+        "SFL <seventy.four.laboratories@gmail.com>"
+    ],
+    "description": "AngularJS auth helpers",
+    "main": "sfl-angular-auth.js",
+    "dependencies": {
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/74Labs/sfl-angular-auth",
+    "private": true
+}
