@@ -32,6 +32,20 @@ angular.module('sfl.auth', [
     
 })
 
+.provider('sflAuthConfig', function() {
+    var provider = sflAuthDummy;
+    this.setProvider = function(p) {
+        provider = p;
+    };
+    this.$get = [function () {
+        var self = {};
+        self.getProvider = function () {
+            return provider;
+        };
+        return self;
+    }];    
+})
+
 .factory('sflAuthLoginRedirectInterceptor', function ($q, $injector) {
     return {
         responseError: function (rejection) {
@@ -47,11 +61,11 @@ angular.module('sfl.auth', [
     };
 })
 
-.service('sflAuth', function ($log, sflSession, sflAuthDummy, $rootScope, $state, $filter) {
+.service('sflAuth', function ($log, sflSession, sflAuthConfig, $rootScope, $state, $filter) {
 
     var self = this;
 
-    self.provider = sflAuthDummy;
+    self.provider = sflAuthConfig.getProvider();
 
     self.redirections = {
         loginState: 'login',
