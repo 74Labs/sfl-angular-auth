@@ -33,7 +33,7 @@ angular.module('sfl.auth', [
 })
 
 .provider('sflAuthConfig', function() {
-    var provider = sflAuthDummy;
+    var provider = null;
     this.setProvider = function(p) {
         provider = p;
     };
